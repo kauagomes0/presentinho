@@ -1,153 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossos 2 Meses ❤️</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Aceita viver sonhos comigo?</title>
+  
+  <!-- Fontes Elegantes e Românticas do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Efeitos de Fundo -->
-    <div class="bg-glow"></div>
-    <div class="hearts"></div>
+  <!-- TELA 1: PERGUNTA (Tema Escuro + 4 fotos de fundo) -->
+  <section id="screen-1" class="screen active">
+    <!-- As 4 fotos de fundo -->
+    <div class="bg-gallery">
+      <div class="bg-item"><img src="cat.jpeg" alt="Gatinhos"></div>
+      <div class="bg-item"><img src="pngtree-cute-couple-capybaras-in-love-png-image_16251792.png" alt="Capivaras"></div>
+      <div class="bg-item"><img src="transferir (1).webp" alt="Desenho Casal"></div>
+      <div class="bg-item"><img src="transferir.webp" alt="Gato Minecraft"></div>
+    </div>
 
-    <!-- TELA INICIAL -->
-    <section class="hero">
+    <!-- Cartão Escuro com Efeito de Vidro (Glassmorphism) -->
+    <div class="card-container">
+      <span class="badge">✨ Uma Pergunta Especial</span>
+      <h1 class="main-title">Aceita viver sonhos comigo??</h1>
+      
+      <div class="illustration-box">
+        <img src="transferir (1).webp" alt="Desenho Casal" class="center-img">
+      </div>
 
-        <span class="top-text">
-            ❤️ Feliz 2 Meses, Meu Amor ❤️
-        </span>
+      <div class="btn-group">
+        <button id="btn-yes" class="btn btn-yes">SIM! 💕</button>
+        <button id="btn-no" class="btn btn-no">Não</button>
+      </div>
+    </div>
+  </section>
 
-        <h1>
-            Dois meses de nós,
-            <br>
-            infinitas memórias.
-        </h1>
+  <!-- TELA 2: PÓS-SIM (GIF do Gatinho Dançando + Suas 2 Fotos Reais) -->
+  <section id="screen-2" class="screen">
+    <div id="hearts-container"></div>
 
-        <p>
-            Cada sorriso, cada abraço, cada foto zoadinha,
-            cada momento simples e cada segundo ao seu lado
-            fizeram esses dois meses se tornarem algo
-            extremamente especial para mim.
-        </p>
-
-        <button id="cartaBtn">
-            Abrir Nossa Carta 💌
-        </button>
-
-    </section>
-
-    <!-- CARTA -->
-    <section class="carta" id="carta">
-
-        <div class="carta-card">
-
-            <h2>Para você ❤️</h2>
-
-            <p>
-               Talvez sejam apenas dois meses no calendário, mas para mim já são incontáveis lembranças, momentos e sentimentos que marcaram a minha vida de uma forma que eu jamais vou esquecer.
-Obrigado por cada risada, por cada brincadeira, pelas nossas fotos zoadas, pelos abraços demorados e por ser exatamente quem você é. São essas pequenas coisas que fazem cada dia ao seu lado ser tão especial.
-Você deixou meus dias mais felizes, mais leves e muito mais bonitos. Com você, até os momentos mais simples ganham um significado diferente, porque a sua companhia transforma qualquer instante em uma memória que vale a pena guardar.
-E uma das coisas que mais admiro em você é que você é uma garota única. Você tem um jeito só seu de fazer as pessoas se sentirem bem, um jeito só seu de sorrir, de brincar e de demonstrar carinho. Não existe ninguém igual a você, e talvez seja justamente isso que faz você ser tão incrível e tão especial para mim.
-Ainda estamos apenas no começo da nossa história, mas já tenho tantas lembranças maravilhosas ao seu lado que parece que nos conhecemos há muito mais tempo. E, sinceramente, espero que isso seja só o início de tudo o que ainda vamos viver.
-Que venham muitos outros meses, muitos anos, muitos sonhos realizados, novas aventuras, mais fotos zoadas, mais abraços e milhares de memórias para construirmos juntos. Porque, se esses primeiros dois meses foram tão especiais, mal posso esperar por tudo o que o futuro reserva para nós. Eu te amo e sou muito feliz por ter encontrado uma garota tão única, incrível e maravilhosa quanto você. ❤️
-            </p>
-
-            <h3>
-                Eu te amo minha mariazinha ❤️
-            </h3>
-
+    <div class="success-box">
+      <h2 class="title-ebaaa">Ebaaaaa!!! 🎉✨</h2>
+      <p class="subtitle">O nosso futuro vai ser incrível ao seu lado!</p>
+      
+      <div class="media-container">
+        <!-- 1. GIF DO GATINHO DANÇANDO -->
+        <div class="media-card gif-card">
+          <img src="gatinho.gif" alt="Gatinho Dançando">
         </div>
 
-    </section>
-
-    <!-- CONTADOR -->
-    <section class="contador">
-
-        <h2>Nosso Tempo Juntos ⏳</h2>
-
-        <div class="timer">
-
-            <div class="time-box">
-                <span id="dias">0</span>
-                <p>Dias</p>
-            </div>
-
-            <div class="time-box">
-                <span id="horas">00</span>
-                <p>Horas</p>
-            </div>
-
-            <div class="time-box">
-                <span id="minutos">00</span>
-                <p>Minutos</p>
-            </div>
-
-            <div class="time-box">
-                <span id="segundos">00</span>
-                <p>Segundos</p>
-            </div>
-
+        <!-- 2. SUAS DUAS FOTOS -->
+        <div class="media-card">
+          <img src="WhatsApp Image 2026-07-19 at 23.30.53.jpeg" alt="Nossa Foto 1">
         </div>
 
-    </section>
-
-    <!-- VÍDEOS EM DESTAQUE -->
-    <section class="videos">
-
-        <h2>Nossos Vídeos 🎥</h2>
-
-        <div class="videos-box">
-
-            <div class="video-card">
-                <video controls>
-                    <source src="WhatsApp Video 2026-07-01 at 17.43.17.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-card">
-                <video controls>
-                    <source src="WhatsApp Video 2026-07-01 at 17.43.21.mp4" type="video/mp4">
-                </video>
-            </div>
-
+        <div class="media-card">
+          <img src="WhatsApp Image 2026-07-19 at 23.34.04.jpeg" alt="Nossa Foto 2">
         </div>
+      </div>
+    </div>
+  </section>
 
-    </section>
-
-    <!-- GALERIA -->
-    <section class="galeria">
-
-        <h2>Nossos Momentos 📸</h2>
-
-        <div class="fotos">
-
-            <img src="WhatsApp Image 2026-07-01 at 17.43.13.jpeg" alt="Nossa foto 1">
-            <img src="WhatsApp Image 2026-07-01 at 17.43.21 (1).jpeg" alt="Nossa foto 2">
-            <img src="WhatsApp Image 2026-07-01 at 17.43.21.jpeg" alt="Nossa foto 3">
-            <img src="WhatsApp Image 2026-07-01 at 17.43.22 (1).jpeg" alt="Nossa foto 4">
-            <img src="WhatsApp Image 2026-07-01 at 17.43.22 (2).jpeg" alt="Nossa foto 5">
-            <img src="WhatsApp Image 2026-07-01 at 17.43.22.jpeg" alt="Nossa foto 6">
-            <img src="WhatsApp Image 2026-07-01 at 17.44.17.jpeg" alt="Nossa foto 7">
-            <img src="WhatsApp Image 2026-07-01 at 18.15.14.jpeg" alt="Nossa foto 7">
-        </div>
-
-    </section>
-
-    <!-- FINAL -->
-    <footer>
-        Feito com ❤️ para celebrar nossos primeiros 2 meses juntos.
-    </footer>
-
-    <script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>

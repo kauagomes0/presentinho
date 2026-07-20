@@ -1,245 +1,51 @@
-// ===============================
-// BOTÃO DA CARTA
-// ===============================
+const btnNo = document.getElementById('btn-no');
+const btnYes = document.getElementById('btn-yes');
+const screen1 = document.getElementById('screen-1');
+const screen2 = document.getElementById('screen-2');
+const heartsContainer = document.getElementById('hearts-container');
 
-const cartaBtn = document.getElementById("cartaBtn");
-const carta = document.getElementById("carta");
+// Movimento de fuga do botão "Não" (Mobile & PC)
+function escapeButton(e) {
+  if (e) e.preventDefault(); // Evita a seleção ou clique no celular
 
-cartaBtn.addEventListener("click", () => {
+  const margin = 20;
+  const maxX = window.innerWidth - btnNo.offsetWidth - margin;
+  const maxY = window.innerHeight - btnNo.offsetHeight - margin;
 
-    if (carta.style.display === "block") {
+  const randomX = Math.max(margin, Math.floor(Math.random() * maxX));
+  const randomY = Math.max(margin, Math.floor(Math.random() * maxY));
 
-        carta.style.display = "none";
-        cartaBtn.innerHTML = "Abrir Nossa Carta 💌";
-
-    } else {
-
-        carta.style.display = "block";
-        cartaBtn.innerHTML = "Fechar Nossa Carta ❤️";
-
-        carta.scrollIntoView({
-            behavior: "smooth"
-        });
-    }
-
-});
-
-
-// ===============================
-// CONTADOR
-// ===============================
-
-const inicio = new Date(
-    "2026-05-01T00:00:00"
-);
-
-function atualizarTempo() {
-
-    const agora = new Date();
-
-    let diferenca = agora - inicio;
-
-    const dias = Math.floor(
-        diferenca /
-        (1000 * 60 * 60 * 24)
-    );
-
-    diferenca =
-        diferenca %
-        (1000 * 60 * 60 * 24);
-
-    const horas = Math.floor(
-        diferenca /
-        (1000 * 60 * 60)
-    );
-
-    diferenca =
-        diferenca %
-        (1000 * 60 * 60);
-
-    const minutos = Math.floor(
-        diferenca /
-        (1000 * 60)
-    );
-
-    diferenca =
-        diferenca %
-        (1000 * 60);
-
-    const segundos = Math.floor(
-        diferenca / 1000
-    );
-
-    document.getElementById("dias").textContent =
-        dias;
-
-    document.getElementById("horas").textContent =
-        String(horas).padStart(2, "0");
-
-    document.getElementById("minutos").textContent =
-        String(minutos).padStart(2, "0");
-
-    document.getElementById("segundos").textContent =
-        String(segundos).padStart(2, "0");
+  btnNo.style.position = 'fixed';
+  btnNo.style.left = `${randomX}px`;
+  btnNo.style.top = `${randomY}px`;
 }
 
-atualizarTempo();
-setInterval(atualizarTempo, 1000);
+btnNo.addEventListener('touchstart', escapeButton, { passive: false });
+btnNo.addEventListener('mouseover', escapeButton);
+btnNo.addEventListener('click', escapeButton);
 
-
-// ===============================
-// ANIMAÇÕES AO ROLAR A PÁGINA
-// ===============================
-
-const elementos = document.querySelectorAll(
-    ".time-box, .video-card, .fotos img, .carta-card"
-);
-
-const observer = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.style.opacity = "1";
-                entry.target.style.transform =
-                    "translateY(0)";
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.15
-    }
-);
-
-elementos.forEach((item) => {
-
-    item.style.opacity = "0";
-    item.style.transform =
-        "translateY(80px)";
-    item.style.transition =
-        "all 1s ease";
-
-    observer.observe(item);
-
+// Transição ao clicar no "SIM"
+btnYes.addEventListener('click', () => {
+  screen1.classList.remove('active');
+  screen2.classList.add('active');
+  startHeartsAnimation();
 });
 
+// Chuva de corações no tema escuro
+function startHeartsAnimation() {
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '💖';
+    
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+    heart.style.fontSize = Math.random() * 1.2 + 0.8 + 'rem';
+    
+    heartsContainer.appendChild(heart);
 
-// ===============================
-// EFEITO PARALLAX NO TÍTULO
-// ===============================
-
-const titulo =
-    document.querySelector(".hero h1");
-
-document.addEventListener(
-    "mousemove",
-    (e) => {
-
-        const x =
-            (window.innerWidth / 2 -
-                e.clientX) / 40;
-
-        const y =
-            (window.innerHeight / 2 -
-                e.clientY) / 40;
-
-        titulo.style.transform =
-            `translate(${x}px, ${y}px)`;
-    }
-);
-
-
-// ===============================
-// APARECIMENTO SUAVE DA PÁGINA
-// ===============================
-
-window.addEventListener("load", () => {
-
-    document.body.style.opacity = "1";
-
-});
-
-document.body.style.opacity = "0";
-document.body.style.transition =
-    "opacity 1s ease";
-
-
-// ===============================
-// BRILHO NOS CARDS AO PASSAR O MOUSE
-// ===============================
-
-const cards = document.querySelectorAll(
-    ".time-box, .video-card"
-);
-
-cards.forEach((card) => {
-
-    card.addEventListener(
-        "mousemove",
-        (e) => {
-
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                e.clientX - rect.left;
-
-            const y =
-                e.clientY - rect.top;
-
-            card.style.background =
-                `
-                radial-gradient(
-                    circle at ${x}px ${y}px,
-                    rgba(255,255,255,.18),
-                    rgba(255,255,255,.07)
-                )
-                `;
-        }
-    );
-
-    card.addEventListener(
-        "mouseleave",
-        () => {
-
-            card.style.background =
-                "rgba(255,255,255,.08)";
-        }
-    );
-
-});
-
-
-// ===============================
-// ANIMAÇÃO NAS FOTOS
-// ===============================
-
-const fotos =
-    document.querySelectorAll(".fotos img");
-
-fotos.forEach((foto) => {
-
-    foto.addEventListener(
-        "mouseenter",
-        () => {
-
-            foto.style.transform =
-                "translateY(-12px) scale(1.05)";
-        }
-    );
-
-    foto.addEventListener(
-        "mouseleave",
-        () => {
-
-            foto.style.transform =
-                "translateY(0) scale(1)";
-        }
-    );
-
-});
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }, 250);
+}
